@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductComponent } from './product/product.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'product', component: ProductComponent },
-  { path: '**', redirectTo: 'product' }
+  {path: 'shopping-cart', component: HomeComponent},
 
 ];
 
@@ -12,4 +11,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  
+}

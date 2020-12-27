@@ -3,28 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartService } from './services/cart.service';
-import { ProductComponent } from './product/product.component';
+import { HomeComponent } from './home/home.component';
+import { ProductsService } from './services/products.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatChipsModule,
-    MatIconModule,
-    // MatDialog 
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
-  providers: [CartService],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

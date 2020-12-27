@@ -1,2 +1,76 @@
 
-<router-outlet></router-outlet>
+<div class="cart-wrapper" *ngIf="!Shopping">
+    <div class="bar-background">
+        <img src="../assets/logo.png" alt="logo" class=logo-size>
+
+
+        <div class="align-end" (click)="cartItems()">
+            <button mat-stroked-button color="primary">
+                <img src="../assets/e-cart.png" alt="logo" > Add to cart {{totalvalue}}</button>
+        </div>
+        
+       
+</div>
+
+<div> 
+    <img src="../assets/slider.jpg" alt="" width="100%">
+</div>
+
+<div class="product-itm">
+    <div class="example-card" *ngFor="let p of products, let i=index">    
+        <img mat-card-image src="{{p.url}}" alt="Photo of a Shiba Inu">
+        <div>
+          <p>{{p.name}}</p>
+          <p>{{p.discription}}</p>
+          <p>{{p.price}} 26% off</p>
+        </div>
+        <div class="ad-btn">         
+          
+          <span>
+            <button mat-raised-button color="accent" class="btn-size-small" (click)="removeFromCart(i,p.id)"> - </button>
+            <button mat-button (click)="addToCart(i,p.id)">Add To Cart</button>
+              <label class="label-small"> {{getQuantity(i)}} </label>
+            <button mat-raised-button color="accent" class="btn-size-small" (click)="addToCart(i,p.id)" > + </button>
+        </span>
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="conatiner" *ngIf="Shopping">
+  <h2>Shopping Cart</h2>
+  <div class="ad-btn">
+    <button mat-button (click)="back()">Back</button>
+   </div>
+<table class="table table-hover table-hover table-bordered">
+ <thead>
+     <tr>
+       <th colspan="4">You have items {{totalvalue}} in Cart</th>
+      </tr>
+   </thead>
+   <thead>
+     <tr>
+       <th></th>
+       <th>Products</th>
+       <th>Quantity</th>
+       <th>Price</th>
+         <th></th>
+     </tr>
+   </thead>
+   <tbody>
+     <div>
+     <tr *ngFor="let order of customer_orders">
+        <th><img src="{{order.image}}" height="50px" width="50" ></th>
+        <th>{{order.name}}</th>
+        <th>{{order.quantity}}</th>
+        <th>{{order.price}}</th>
+     </tr>
+         
+     </div>
+
+   
+   </tbody>
+ </table>
+
+</div>
+
