@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+            <mat-card class='p-3'>
+                <mat-card-header >
+                    <h2 class="text-center">Order Summary</h2>
+                </mat-card-header>
+                <mat-card-content class="p-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                           <b> Order Status</b>
+                        </div>
+                        <div class="col-md-6">
+                            Success
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                           <b>Paid Amount</b>
+                        </div>
+                        <div class="col-md-6">
+                         <i class="fa fa-inr"></i>  {{orderDetail?.amount}}
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                           <b>Total Items</b>
+                        </div>
+                        <div class="col-md-6">
+                            {{orderDetail?.items}}
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-footer class="text-center mb-3">
+                    <button mat-raised-button color='primary' routerLink='/'>Continue Shopping</button>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>

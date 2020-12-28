@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row" *ngIf='cartProducts?.length>0'>
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card *ngFor='let product of cartProducts' class="product-card">
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src='{{product?.url}}' class="product-img">
+                                </div>
+                                <div class="col-md-6  text-center">
+                                    <p>{{product?.name | titlecase}}</p>
+                                    <p ><i class="fa fa-inr" aria-hidden="true"></i>{{product?.price}} 
+                                        <del> <i class="fa fa-inr" aria-hidden="true"></i>{{product?.mrp}}</del></p>
+                                    <p>Quantity :  {{product?.orderQuantity}}</p>
+                                    <button mat-raised-button color='primary' (click)='removeCartProduct(product)'>Remove From Cart</button>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-header class="text-center">
+                    <mat-card-title>Price Details</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="p-5 text-center">
+                    <div class="row price">
+                        <div class="col-md-6">
+                          <b>  Total Price</b>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="fa fa-inr" aria-hidden="true"></i> {{price?.totalPrice}}
+                        </div>
+                    </div>
+                    <div class="row  price">
+                        <div class="col-md-6">
+                          <b>  Shipping Charge</b>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="fa fa-inr" aria-hidden="true"></i> {{price?.shipCharge}}
+                        </div>
+                    </div>
+                    <div class="row  price">
+                        <div class="col-md-6">
+                           <b>Sub Total</b>
+                        </div>
+                        <div class="col-md-6"> 
+                            <i class="fa fa-inr" aria-hidden="true"></i> {{price?.payAmount}}
+                        </div>
+                    </div>
+                    <div class="row  price">
+                        <div class="col-md-6">
+                         <b> You Saved</b>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="fa fa-inr" aria-hidden="true"></i> {{price?.totalSaving}}
+                        </div>
+                    </div>
+                    <div class="row  price">
+                        <div class="col-md-6">
+                         <b> Payable Amount</b>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="fa fa-inr" aria-hidden="true"></i>  {{price?.payableAmount}}
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-footer>
+                    <button mat-raised-button class="btn-block" (click)='placeOrder()' color='primary'>Place Order</button>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row text-center" *ngIf='cartProducts?.length<=0'>
+        <div class="col-md-12">
+            <mat-card class="no-product-cart text-center">
+               <img src='http://estore.axaratech.com/assets/no-product-33dc3c65b6963555d6e7f92d0ace54bd.jpg'>
+            </mat-card>
+        </div>
+    </div>
+</div>

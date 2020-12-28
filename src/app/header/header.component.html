@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span routerLink='/' class="link">
+        <img src='../../assets/logo.png' class="logo">
+    </span>
+    <span class="example-spacer"></span>
+        <mat-icon matBadge="{{productS?.cartProduct?.length}}" matBadgeColor="primary" routerLink='/shopping-cart' class="link">
+        add_shopping_cart
+    </mat-icon>
+</mat-toolbar>
